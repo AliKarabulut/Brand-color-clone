@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStoreState = { copied: " ", selected: [], showCopied: false};
+const initialStoreState = { copied: " ", selected: [], showCopied: false, search: ''};
 
 const CopiedSlice = createSlice({
   name: "copieds",
@@ -19,8 +19,12 @@ const CopiedSlice = createSlice({
     },
     toggleShowCopied(state, action){
         state.showCopied = action.payload
+    },
+    setSearch(state,action){
+      state.search = action.payload
     }
   },
+
 });
 
 export const copiedActions = CopiedSlice.actions;

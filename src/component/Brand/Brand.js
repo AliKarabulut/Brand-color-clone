@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Clipboard from "react-clipboard.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BsCheck2 } from "react-icons/bs";
 import { getContrastYIQ } from "../../helper";
 import { copiedActions } from "../../store/store";
@@ -8,6 +8,7 @@ import styles from "./Brand.module.css";
 
 const Brand = ({ brand }) => {
   const [show, setShow] = useState(false);
+  const showCopied = useSelector((state) => state.store.search);
 
   const dispatch = useDispatch();
 
@@ -16,16 +17,23 @@ const Brand = ({ brand }) => {
     dispatch(copiedActions.toggleShowCopied(true));
   };
 
+  const addColorList = () => {
+    setShow(!show);
+
+    dispatch(copiedActions.toggleSelected(brand.title));
+    console.log(showCopied);
+  };
+
   return (
     <article
-      onClick={() => setShow(!show)}
+      onClick={addColorList}
       className={`${styles.brandWrapper} ${
         show === true ? styles.selected : ""
       }`}
     >
       {show && (
         <div className={styles.check}>
-          <BsCheck2 size={24}/>
+          <BsCheck2 />
         </div>
       )}
       <div className={styles.brandMain}>
