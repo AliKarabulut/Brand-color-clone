@@ -13,9 +13,9 @@ const Content = (props) => {
   });
 
   const [brands, setBrands] = useState(brandsArray);
-
+  
   useEffect(() => {
-    setBrands(brandsArray.filter((item) => item.title.includes(search)));
+    setBrands(brandsArray.filter((item) => item.title.toLowerCase().includes(search.toLowerCase())));
   }, [search]);
 
   return (
