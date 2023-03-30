@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Clipboard from "react-clipboard.js";
 import { useDispatch, useSelector } from "react-redux";
 import { BsCheck2 } from "react-icons/bs";
@@ -8,7 +8,7 @@ import styles from "./Brand.module.css";
 
 const Brand = ({ brand }) => {
   const [show, setShow] = useState(false);
-  const showCopied = useSelector((state) => state.store.search);
+  const selected = useSelector((state) => state.store.selected);
 
   const dispatch = useDispatch();
 
@@ -17,20 +17,21 @@ const Brand = ({ brand }) => {
     dispatch(copiedActions.toggleShowCopied(true));
   };
 
-  const addColorList = () => {
-    setShow(!show);
+  useEffect(() => {
+    if (selected.includes(brand.title)) {
+      setShow(true);
+      console.log("nana");
+    } else {
+      setShow(false);
+    }
+  }, [selected]);
 
+  const addColorList = () => {
     dispatch(copiedActions.toggleSelected(brand.title));
-    console.log(showCopied);
   };
 
   return (
-    <article
-      onClick={addColorList}
-      className={`${styles.brandWrapper} ${
-        show === true ? styles.selected : ""
-      }`}
-    >
+    <article onClick={addColorList} className={styles.brandWrapper}>
       {show && (
         <div className={styles.check}>
           <BsCheck2 />

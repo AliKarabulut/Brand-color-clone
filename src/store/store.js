@@ -22,6 +22,9 @@ const CopiedSlice = createSlice({
     },
     setSearch(state,action){
       state.search = action.payload
+    },
+    clearSelected(state){
+      state.selected = []
     }
   },
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Brand from "../Brand/Brand";
 import Navbar from "../Navbar/Navbar";
+import LazyLoad from 'react-lazyload';
 import BrandsData from "../../brands.json";
 import styles from "./Content.module.css";
 import { useSelector } from "react-redux";
@@ -13,9 +14,13 @@ const Content = (props) => {
   });
 
   const [brands, setBrands] = useState(brandsArray);
-  
+
   useEffect(() => {
-    setBrands(brandsArray.filter((item) => item.title.toLowerCase().includes(search.toLowerCase())));
+    setBrands(
+      brandsArray.filter((item) =>
+        item.title.toLowerCase().includes(search.toLowerCase())
+      )
+    );
   }, [search]);
 
   return (
@@ -23,7 +28,9 @@ const Content = (props) => {
       <Navbar />
       <div>
         {brands.map((item) => (
-          <Brand brand={item} />
+          <LazyLoad key={item.slug} height={80}   >
+            <Brand brand={item} />
+          </LazyLoad>
         ))}
       </div>
     </div>
