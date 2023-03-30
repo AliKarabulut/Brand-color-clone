@@ -2,7 +2,7 @@
   display: flex;
   flex: 1;
   align-items: center;
-
+  background-color: white;
 }
 
 .icon {
@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
 }
-svg {
+.icon svg {
   width: 20px;
   height: 20px;
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Clipboard from "react-clipboard.js";
 import { useDispatch } from "react-redux";
+import { BsCheck2 } from "react-icons/bs";
 import { getContrastYIQ } from "../../helper";
 import { copiedActions } from "../../store/store";
 import styles from "./Brand.module.css";
@@ -22,6 +23,11 @@ const Brand = ({ brand }) => {
         show === true ? styles.selected : ""
       }`}
     >
+      {show && (
+        <div className={styles.check}>
+          <BsCheck2 size={24}/>
+        </div>
+      )}
       <div className={styles.brandMain}>
         <header className={styles.brandHeader}>
           <h1 className={styles.brandTitle}> {brand.title}</h1>
@@ -30,9 +36,9 @@ const Brand = ({ brand }) => {
           {brand.colors.map((item, key) => {
             return (
               <li
-              className={`${styles.list}  ${
-                show === true ? styles.listd1 : styles.listd2
-              }`}
+                className={`${styles.list}  ${
+                  show === true ? styles.listd1 : styles.listd2
+                }`}
                 key={key}
                 onClick={(e) => {
                   e.stopPropagation();
