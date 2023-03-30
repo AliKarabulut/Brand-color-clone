@@ -3,18 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "animate.css": "^4.1.1",
+    "animate.css-react": "^1.1.0",
     "react": "^18.2.0",
     "react-clipboard.js": "^2.0.16",
     "react-content-loader": "^6.2.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-modal": "^3.16.1",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
-    "react-virtualized": "^9.22.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

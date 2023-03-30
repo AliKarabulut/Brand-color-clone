@@ -1,0 +1,67 @@
+.brandWrapper {
+  position: relative;
+  padding: 15px 15px 15px 0;
+  margin-left: 15px;
+  border-bottom: solid 1px #e0e0e0;
+  cursor: pointer;
+}
+
+.brandMain {
+  display: flex;
+}
+
+.brandHeader {
+  flex-shrink: 0;
+  margin-right: 20px;
+  width: 20%;
+}
+
+.brandTitle {
+  margin-top: 8px;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.brandColors {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: -5px;
+  list-style: none;
+}
+
+.list {
+  margin: 5px;
+}
+
+.listd1 {
+  flex-basis: 120px;
+  flex-grow: 1;
+}
+
+.listd2 {
+  flex: 0 1 40px;
+}
+
+.list button {
+  width: 100%;
+  height: 40px;
+  padding: 8px 16px;
+  border: none;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--textColor);
+  cursor: pointer;
+  background-color: var(--bgColor);
+}
+
+.brandFooter {
+  margin-top: 15px;
+}
+
+.brandFooter span {
+  font-size: 1.4rem;
+  margin-right: 20px;
+}
