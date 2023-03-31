@@ -27,8 +27,8 @@ const Collection = (props) => {
     <div className={styles.collection}>
       <Navbar />
       <div>
-        {brands.map((item) => (
-          <Brand brand={item} />
+        {brands.map((item, key ) => (
+          <Brand key={key} brand={item} />
         ))}
       </div>
     </div>

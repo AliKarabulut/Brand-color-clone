@@ -26,8 +26,8 @@ const Content = (props) => {
     <div className={styles.content}>
       <Navbar />
       <div>
-        {brands.map((item) => (
-          <Brand brand={item} />
+        {brands.map((item, key) => (
+          <Brand key={key} brand={item} />
         ))}
       </div>
     </div>
