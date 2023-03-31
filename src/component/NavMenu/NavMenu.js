@@ -60,9 +60,10 @@ const NavMenu = (props) => {
     dispatch(copiedActions.clearSelected());
   };
   const giveLink = () => {
+    const titles = selected.map((item) => item.slug).join(",");
     prompt(
       "Here's the URL to share",
-      `localhost:3000/collection/${selected.join(",")}`
+      `localhost:3000/collection/${titles}`
     );
   };
   //to={`/collection/${selectedBrands.join(",")}`}
