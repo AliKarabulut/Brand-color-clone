@@ -28,6 +28,9 @@ const Sidebar = (props) => {
             <li>
               <a onClick={toggleModal}>About BrandColors</a>
             </li>
+            <li>
+              <a href="https://brandcolors.net/" target='_blank'>Orginal Web Site</a>
+            </li>
           </ul>
         </nav>
       </div>
