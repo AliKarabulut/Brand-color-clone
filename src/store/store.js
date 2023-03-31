@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStoreState = { copied: "", selected: [], showCopied: false, search: "" };
+const initialStoreState = {
+  copied: "",
+  selected: [],
+  showCopied: false,
+  search: "",
+};
 
 const CopiedSlice = createSlice({
   name: "copieds",
@@ -14,7 +19,9 @@ const CopiedSlice = createSlice({
       const selectedItems = [...state.selected];
 
       if (selectedItems.some((item) => item.slug === payload.slug)) {
-        state.selected = selectedItems.filter((item) => item.slug !== payload.slug);
+        state.selected = selectedItems.filter(
+          (item) => item.slug !== payload.slug
+        );
       } else {
         state.selected = [...selectedItems, payload];
       }

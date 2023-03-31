@@ -7,7 +7,6 @@ const Search = (props) => {
   const dispatch = useDispatch();
 
   const addSearch = (e) => {
-    console.log(e.target.value)
     dispatch(copiedActions.setSearch(e.target.value));
   };
   return (

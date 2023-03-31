@@ -12,7 +12,7 @@
 
 .brandHeader {
   flex-shrink: 0;
-  margin-right: 20px;
+  margin-right: 25px;
   width: 20%;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .listd2 {
-  flex: 0 1 40px;
+  flex: 0 1 60px;
 }
 
 .list button {
@@ -57,13 +57,33 @@
   background-color: var(--bgColor);
 }
 
+.listd1 button {
+  text-indent: 0px;
+}
+
+.listd2 button {
+  text-indent: -9999px;
+}
+
 .brandFooter {
   margin-top: 15px;
 }
 
 .brandFooter span {
   font-size: 1.4rem;
-  margin-right: 20px;
+  margin-right: 10px;
+  color: gray;
+}
+
+.brandFooter a {
+  font-size: 1.4rem;
+  color: gray;
+}
+
+.brandFooter a:before {
+  content: "•";
+  margin-right: 7px;
+  color: gray;
 }
 
 .selected .brandTitle {
@@ -83,5 +103,12 @@
   width: 25px;
   height: 25px;
   color: #2196f3;
-  stroke-width: .2px;
+  stroke-width: 0.2px;
+}
+
+@media (max-width: 1000px) {
+  .check {
+    left: -15px;
+    top: -10px;
+  }
 }

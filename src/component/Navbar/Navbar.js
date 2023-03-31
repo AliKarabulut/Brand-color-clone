@@ -6,11 +6,9 @@ const Navbar = () => {
   return (
     <div className={styles.navbar}>
       <Search></Search>
-
-      <div className={styles.navMenu}>
-
+      
         <NavMenu />
-      </div>
+
     </div>
   );
 };

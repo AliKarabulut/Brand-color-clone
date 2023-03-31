@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Brand from "../Brand/Brand";
 import Navbar from "../Navbar/Navbar";
 import BrandsData from "../../brands.json";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { copiedActions } from "../../store/store";
 import styles from "./Collection.module.css";
@@ -21,9 +21,8 @@ const Collection = (props) => {
     setBrands(filteredBrands);
 
     filteredBrands.map((item) => dispatch(copiedActions.toggleSelected(item)));
-    
   }, []);
-  
+
   return (
     <div className={styles.collection}>
       <Navbar />

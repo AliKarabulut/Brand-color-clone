@@ -36,6 +36,7 @@ const Sidebar = (props) => {
         onRequestClose={toggleModal}
         className={styles.modal}
         overlayClassName={styles.modalOverlay}
+        bodyOpenClassName={styles.bodyOpen}
       >
         <button className={styles.closeBtn} onClick={toggleModal}>
           <GrClose />

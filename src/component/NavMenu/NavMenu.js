@@ -2,7 +2,6 @@ import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IoMdClose, IoMdDownload } from "react-icons/io";
 import { IoLinkOutline } from "react-icons/io5";
-import { GrDownload } from "react-icons/gr";
 import { copiedActions } from "../../store/store";
 import styles from "./NavMenu.module.css";
 
@@ -61,37 +60,55 @@ const NavMenu = (props) => {
   };
   const giveLink = () => {
     const titles = selected.map((item) => item.slug).join(",");
-    prompt(
-      "Here's the URL to share",
-      `localhost:3000/collection/${titles}`
-    );
+    prompt("Here's the URL to share", `localhost:3000/collection/${titles}`);
   };
-  //to={`/collection/${selectedBrands.join(",")}`}
+
+  if (selected.length === 0) {
+    return (
+      <div className={styles.navMenu}>
+        <div className={`${styles.noDownload}  ${styles.noIcon}`}>
+          <IoMdDownload />
+        </div>
+        <div className={`${styles.noShare}  ${styles.noIcon}`}>
+          <IoLinkOutline />
+        </div>
+        <div className={`${styles.noClose}  ${styles.noIcon}`}>
+          <IoMdClose />
+        </div>
+        <div className={styles.noBrandCollected}>0 brands collected</div>
+      </div>
+    );
+  }
   return (
-    <Fragment>
+    <div className={styles.navMenu}>
       <select onChange={(e) => setCssMethod(e.target.value)}>
         <option value="css">CSS</option>
         <option value="scss">SCSS</option>
         <option value="less">LESS</option>
       </select>
       <a
-        className={styles.icon}
+        className={`${styles.noDownload}  ${styles.icon}`}
         download={`brands.${cssMethod}`}
         href={downloadUrl}
       >
         <IoMdDownload />
       </a>
-      <div className={styles.icon} onClick={giveLink}>
+      <div
+        className={`${styles.noShare}  ${styles.icon}`}
+        onClick={giveLink}
+      >
         <IoLinkOutline />
       </div>
-      <div className={styles.icon} onClick={clearSelected}>
+      <div
+        className={`${styles.noClose}  ${styles.icon}`}
+        onClick={clearSelected}
+      >
         <IoMdClose />
       </div>
       <div className={styles.brandCollected}>
-        {" "}
         {selected.length} brands collected
       </div>
-    </Fragment>
+    </div>
   );
 };
 export default NavMenu;

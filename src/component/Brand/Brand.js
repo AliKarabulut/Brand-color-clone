@@ -8,6 +8,7 @@ import styles from "./Brand.module.css";
 
 const Brand = ({ brand }) => {
   const [show, setShow] = useState(false);
+  const [date, setDate] = useState(false);
   const selected = useSelector((state) => state.store.selected);
 
   const dispatch = useDispatch();
@@ -23,11 +24,24 @@ const Brand = ({ brand }) => {
     } else {
       setShow(false);
     }
-  }, [selected]);
+  }, [show]);
 
   const addColorList = () => {
+    setShow(!show)
     dispatch(copiedActions.toggleSelected(brand));
   };
+
+  useEffect(() => {
+    const date = new Date(brand.modified);
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    const formattedDate = `${year}/${month}/${day}`;
+    setDate(formattedDate)
+
+
+  }, [])
+  
 
   return (
     <article onClick={addColorList} className={styles.brandWrapper}>
@@ -70,10 +84,17 @@ const Brand = ({ brand }) => {
       </div>
       {show && (
         <footer className={styles.brandFooter}>
-          <span>tarih</span>
-          <span>link</span>
-          <span>link</span>
-          <span>link</span>
+          <span>Updated {date}</span>
+          <span>
+            <a href={brand.brand_url} target="_blank">
+              Brand URL
+            </a>
+          </span>
+          <span>
+            <a href={brand.source_url} target="_blank">
+              Source URL
+            </a>
+          </span>
         </footer>
       )}
     </article>

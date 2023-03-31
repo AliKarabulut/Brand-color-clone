@@ -1,13 +1,12 @@
 import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
 import Collection from "./component/Collection/Collection";
 import Content from "./component/Content/Content";
 import Copied from "./component/Copied/Copied";
-import Sidebar from "./component/Sidebar/Sidebar";
 import RootLayout from "./pages/root";
 import { copiedActions } from "./store/store";
+import "./App.css";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +21,6 @@ const router = createBrowserRouter([
 
 function App() {
   const showCopied = useSelector((state) => state.store.showCopied);
-  console.log(showCopied);
   const dispatch = useDispatch();
 
   useEffect(() => {
