@@ -18,16 +18,15 @@ const Brand = ({ brand }) => {
   };
 
   useEffect(() => {
-    if (selected.includes(brand.title)) {
+    if (selected.includes(brand)) {
       setShow(true);
-      console.log("nana");
     } else {
       setShow(false);
     }
   }, [selected]);
 
   const addColorList = () => {
-    dispatch(copiedActions.toggleSelected(brand.title));
+    dispatch(copiedActions.toggleSelected(brand));
   };
 
   return (

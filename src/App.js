@@ -1,15 +1,29 @@
 import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
+import Collection from "./component/Collection/Collection";
 import Content from "./component/Content/Content";
 import Copied from "./component/Copied/Copied";
 import Sidebar from "./component/Sidebar/Sidebar";
+import RootLayout from "./pages/root";
 import { copiedActions } from "./store/store";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <Content /> },
+      { path: "collection/:id", element: <Collection /> },
+    ],
+  },
+]);
 
 function App() {
   const showCopied = useSelector((state) => state.store.showCopied);
-  console.log(showCopied)
-  const dispatch = useDispatch()
+  console.log(showCopied);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -23,8 +37,7 @@ function App() {
   return (
     <Fragment>
       {showCopied && <Copied />}
-      <Sidebar />
-      <Content />
+      <RouterProvider router={router} />
     </Fragment>
   );
 }

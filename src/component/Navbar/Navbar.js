@@ -8,7 +8,7 @@ const Navbar = () => {
       <Search></Search>
 
       <div className={styles.navMenu}>
-        {" "}
+
         <NavMenu />
       </div>
     </div>
