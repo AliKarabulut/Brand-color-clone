@@ -6,7 +6,6 @@ import Content from "./component/Content/Content";
 import Copied from "./component/Copied/Copied";
 import RootLayout from "./pages/root";
 import { copiedActions } from "./store/store";
-import "./App.css";
 
 const router = createBrowserRouter([
   {
