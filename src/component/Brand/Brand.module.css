@@ -6,6 +6,10 @@
   cursor: pointer;
 }
 
+.LazyLoad{
+  min-height: 70px;
+}
+
 .brandMain {
   display: flex;
 }

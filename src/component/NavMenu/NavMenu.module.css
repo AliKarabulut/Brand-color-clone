@@ -6,11 +6,17 @@
   font-size: 1.5rem;
   margin-left: 2rem;
 }
+.icon {
+  position: relative;
+}
 
+.icon:not(:first-child) {
+  z-index: 9;
+}
 .icon svg {
   width: 22px;
   height: 22px;
-  margin-left: 10px;
+  margin-right: 10px;
   color: black;
   cursor: pointer;
 }
@@ -18,7 +24,7 @@
 .noIcon svg {
   width: 22px;
   height: 22px;
-  margin-left: 10px;
+  margin-right: 10px;
   color: gray;
 }
 
@@ -26,6 +32,23 @@
   font-size: 1.5rem;
   margin-left: 2rem;
   color: gray;
+}
+
+select {
+  color: transparent;
+  cursor: pointer;
+  appearance: none;
+  position: absolute;
+  width: 60px;
+  height: 25px;
+  top: 0px;
+  left: 0;
+  z-index: 1;
+  background-color: transparent;
+}
+
+select option {
+  color: black;
 }
 
 @media (max-width: 1000px) {
